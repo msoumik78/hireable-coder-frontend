@@ -1,18 +1,30 @@
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { useLocation } from 'react-router-dom';
 import VerticalNavbar from './NavBar';
 import Title from './Title';
-import AccountSummary from './AccountsSummary';
+import Profile from './Profile';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
-
-export default function Home2(props) {
+export default function ProfileUpdate(props) {
     const {state} = useLocation();
-    const { id, name } = state; // Read values passed on state
+    const { id, name } = state; 
+    const [data, setData] = useState([]);
+ 
+
+    useEffect(() => {
+        axios
+          .get(`http://localhost:8080/api/1/bank-customers/${id}`)
+          .then((res) => {
+            setData(res.data)
+          })
+      },  [])
 
     return(
         <>
-        <div className="row flex-nowrap">
+        <div class="row flex-nowrap">
             <div className="col-4">
                 <VerticalNavbar customerId={id} customerName={name}/>
             </div>
@@ -27,7 +39,7 @@ export default function Home2(props) {
                             <br></br>
                             <br></br>                                                        
                         <Title customerName={name}/>
-                        <AccountSummary customerId={id} />
+                        <Profile userId={id} email={data.email} address={data.address} city={data.city} state={data.state} profession={data.profession}/>
                         </div>
 
                     </div>
