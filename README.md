@@ -1,5 +1,8 @@
-# Functionality : Simple login and home page of a mini bank app
-This repo contains a REACT based mini bank app witha  simple login and a home page.
+# Functionality : View profile & Update profile page of a mini bank app added to existing login and home pages
+This repo contains a REACT based mini bank app with a the following new functionalities added:
+- View profile details
+- Update profile details
+
 
 
 # Technical details and Pre-requisites
