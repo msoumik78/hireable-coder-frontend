@@ -14,8 +14,8 @@ const VerticalNavbar = (props) => {
             <ul className="navbar-nav d-flex flex-column">
                 <li className="nav-item"><Link to="/home" state={{id:userId,name:userName}}>Dashboard</Link></li>
                 <li className="nav-item"><Link to="/profile" state={{id:userId,name:userName}}>Profile</Link></li>
-                <li className="nav-item"><Link to="/" onClick={ (event) => event.preventDefault() }>Payments</Link></li>
-                <li className="nav-item"><Link to="/" onClick={ (event) => event.preventDefault() }>Transfer</Link></li>
+                <li className="nav-item"><Link to="/transactions" state={{id:userId,name:userName}}>Transactions</Link></li>
+                <li className="nav-item"><Link to="/transfer" state={{id:userId,name:userName}}>Transfer/Payments</Link></li>
             </ul>
         </nav>
     );
