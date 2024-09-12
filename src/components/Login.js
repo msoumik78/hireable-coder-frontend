@@ -20,7 +20,9 @@ export default function Login() {
           axios.post("http://localhost:8080/api/1/bank-customers/login-verification", userData)
           .then((response) => {
             const userId = response.data.userId;
-            const userName = response.data.username
+            const userName = response.data.username;
+            const jwt = response.data.jwtResponse;
+            localStorage.setItem("jwt-token", jwt);
              if (userId <= 0) {
                 setError('Sorry Credentials dont match');    
             } else {
